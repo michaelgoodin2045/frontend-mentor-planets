@@ -1,0 +1,91 @@
+@use '../base/' as *;
+@use '../abstracts/' as a;
+
+.stats-container {
+  width: 327px;
+  height: 216px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  @include a.breakpoint(tablet) {
+    width: 686px;
+    height: 124px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  @include a.breakpoint(laptop) {
+    width: 858px;
+  }
+  @include a.breakpoint(desktop) {
+    width: 1110px;
+  }
+  & .stat-box {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid $clr--dark-gray;
+    @include a.breakpoint(tablet) {
+      width: 164px;
+      height: 88px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    @include a.breakpoint(laptop) {
+      width: 192px;
+      height: 113px;
+    }
+    @include a.breakpoint(desktop) {
+      width: 255px;
+      height: 128px;
+    }
+    & .stat-name {
+      font-family: $ff--spartan;
+      font-size: 0.5rem;
+      line-height: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.73px;
+      color: $clr--light-gray;
+      margin-left: 1.5rem;
+      text-transform: uppercase;
+      @include a.breakpoint(tablet) {
+        margin-top: 16px;
+        margin-left: 1rem;
+      }
+      @include a.breakpoint(laptop) {
+        font-size: 0.6875rem;
+        line-height: 1.5625rem;
+        letter-spacing: 1px;
+        margin-top: 20px;
+        margin-left: 1.5rem;
+      }
+    }
+    & .stat-info {
+      font-family: $ff--antonio;
+      font-size: 1.25rem;
+      letter-spacing: -0.75px;
+      margin-right: 1.5rem;
+      text-transform: uppercase;
+      @include a.breakpoint(tablet) {
+        margin-left: 1rem;
+        margin-right: 0;
+        margin-bottom: 16px;
+        font-size: 1.5rem;
+        letter-spacing: -0.9px;
+      }
+      @include a.breakpoint(laptop) {
+        margin-left: 1.5rem;
+        margin-bottom: 25px;
+        font-size: 2rem;
+        letter-spacing: -1.25px;
+      }
+      @include a.breakpoint(desktop) {
+        font-size: 2.5rem;
+        letter-spacing: -1.5px;
+      }
+    }
+  }
+}

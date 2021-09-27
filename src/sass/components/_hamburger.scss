@@ -1,0 +1,22 @@
+@use '../base/' as *;
+@use '../abstracts/' as a;
+
+.hamburger {
+  width: 1.5rem;
+  height: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 10;
+  & .burger {
+    width: 1.5rem;
+    height: 3px;
+    background-color: $clr--white;
+    cursor: pointer;
+  }
+  &.hamburger-open {
+    .burger {
+      background-color: $clr--dark-gray;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@use '../base/' as *;
+
+$planet-colors: (
+  'mercury': $clr--blue-300,
+  'venus': $clr--yellow,
+  'earth': $clr--purple,
+  'mars': $clr--orange-300,
+  'jupiter': $clr--red,
+  'saturn': $clr--orange-400,
+  'uranus': $clr--sea-green,
+  'neptune': $clr--blue-400,
+);
+
+@each $key, $val in $planet-colors {
+  .bg-#{$key} {
+    background-color: $val;
+  }
+}
+
+@each $key, $val in $planet-colors {
+  .#{$key} .info-btn.active::after {
+    background-color: $val;
+  }
+}

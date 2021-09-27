@@ -1,0 +1,218 @@
+@use '../base/' as *;
+@use '../abstracts/' as a;
+
+.info-container {
+  display: grid;
+  width: 100%;
+  height: 618px;
+  grid-template-rows: 51px 304px 235px 28px;
+  grid-template-columns: 1fr;
+  @include a.breakpoint(tablet) {
+    width: 688px;
+    height: 740px;
+    margin: 0 auto;
+    grid-template-rows: 460px 253px 27px;
+    grid-template-columns: 1fr;
+  }
+  @include a.breakpoint(laptop) {
+    width: 874px;
+    height: 754px;
+    margin: 0 auto;
+    grid-template-rows: 126px 541px 87px;
+    grid-template-columns: 524px 350px;
+  }
+  @include a.breakpoint(desktop) {
+    width: 100%;
+    height: 754px;
+    margin: 0;
+    grid-template-rows: 126px 541px 87px;
+    grid-template-columns: 1fr 890px 350px 4.71fr;
+  }
+  & .buttons {
+    width: 100%;
+    grid-row: 1;
+    grid-column: 1;
+    display: flex;
+    flex-direction: row;
+    @include a.breakpoint(tablet) {
+      grid-row: 2;
+      grid-column: 1;
+      flex-direction: column;
+      position: relative;
+      left: 408px;
+      margin-top: 56px;
+    }
+    @include a.breakpoint(laptop) {
+      grid-row: 2;
+      grid-column: 2;
+      flex-direction: column;
+      left: unset;
+      margin-top: 365px;
+    }
+    @include a.breakpoint(desktop) {
+      grid-column: 3;
+    }
+  }
+  & .planet-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-row: 2;
+    grid-column: 1;
+    @include a.breakpoint(tablet) {
+      grid-row: 1;
+      grid-column: 1/2;
+      padding-top: 17px;
+    }
+    @include a.breakpoint(laptop) {
+      grid-row: 2;
+      grid-column: 1;
+      justify-content: center;
+    }
+    @include a.breakpoint(desktop) {
+      grid-column: 2;
+      justify-content: center;
+      padding-top: 0;
+    }
+    & img {
+      zoom: 38%;
+      @include a.breakpoint(tablet) {
+        zoom: 63%;
+      }
+      @include a.breakpoint(laptop) {
+        zoom: 100%;
+      }
+      @include a.breakpoint(desktop) {
+        zoom: 110%;
+      }
+    }
+  }
+  & .geology-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-row: 2;
+    grid-column: 1;
+    margin-top: 156px;
+    @include a.breakpoint(tablet) {
+      grid-row: 1;
+      margin-top: 280px;
+    }
+    @include a.breakpoint(laptop) {
+      grid-row: 2;
+      margin-top: 370px;
+    }
+    @include a.breakpoint(desktop) {
+      grid-column: 2;
+      margin-top: 395px;
+    }
+    & img {
+      zoom: 25%;
+      @include a.breakpoint(tablet) {
+        zoom: 41%;
+      }
+      @include a.breakpoint(laptop) {
+        zoom: 50%;
+      }
+      @include a.breakpoint(desktop) {
+        zoom: 55%;
+      }
+    }
+  }
+  & .info-box {
+    width: 100%;
+    height: 235px;
+    grid-row: 3;
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 58px 10px 1fr 25px;
+    grid-template-columns: 1fr;
+    z-index: 4;
+    @include a.breakpoint(tablet) {
+      grid-row: 2;
+      grid-column: 1;
+      width: 339px;
+      height: 253px;
+      grid-template-rows: 69px 17px 1fr 25px;
+      grid-column: 1fr;
+    }
+    @include a.breakpoint(laptop) {
+      grid-row: 2;
+      grid-column: 2;
+      width: 350px;
+      height: 365px;
+      grid-template-rows: 115px 12px 1fr 25px 39px;
+      grid-column: 1fr;
+    }
+    @include a.breakpoint(desktop) {
+      grid-column: 3;
+    }
+    & .planet-name {
+      grid-row: 1;
+      grid-column: 1;
+      font-family: $ff--antonio;
+      font-size: 2.5rem;
+      text-align: center;
+      text-transform: uppercase;
+      @include a.breakpoint(tablet) {
+        grid-row: 1;
+        grid-column: 1;
+        text-align: left;
+        font-size: 3rem;
+      }
+      @include a.breakpoint(laptop) {
+        font-size: 5rem;
+      }
+    }
+    & .planet-content {
+      grid-row: 3;
+      grid-column: 1;
+      width: 327px;
+      margin: 0 auto;
+      font-family: $ff--spartan;
+      font-size: 0.6875rem;
+      line-height: 1.375rem;
+      text-align: center;
+      @include a.breakpoint(tablet) {
+        text-align: left;
+      }
+      @include a.breakpoint(laptop) {
+        text-align: left;
+        width: 350px;
+        font-size: 14px;
+        line-height: 25px;
+      }
+    }
+    & .planet-source {
+      grid-row: 4;
+      grid-column: 1;
+      text-align: center;
+      @include a.breakpoint(tablet) {
+        text-align: left;
+      }
+      & .source-blurb {
+        font-family: $ff--spartan;
+        font-size: 0.75rem;
+        color: $clr--light-gray;
+        @include a.breakpoint(laptop) {
+          font-size: 0.875rem;
+        }
+      }
+      & a {
+        font-family: $ff--spartan;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: $clr--light-gray;
+        @include a.breakpoint(laptop) {
+          font-size: 0.875rem;
+        }
+      }
+      & img {
+        margin-left: 4px;
+        margin-bottom: -2px;
+      }
+    }
+  }
+}

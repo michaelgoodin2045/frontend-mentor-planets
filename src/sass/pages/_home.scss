@@ -1,0 +1,17 @@
+@use '../base/' as *;
+@use '../abstracts/' as a;
+
+.container {
+  width: 100vw;
+  height: 950px;
+  background-image: url('./images/background-stars.svg');
+  background-color: $clr--background;
+  color: $clr--white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  @include a.breakpoint(tablet) {
+    height: 1024px;
+  }
+}

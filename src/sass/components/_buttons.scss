@@ -1,0 +1,181 @@
+@use '../base/' as *;
+@use '../abstracts/' as a;
+
+$planet-colors: (
+  'mercury': $clr--blue-300,
+  'venus': $clr--yellow,
+  'earth': $clr--purple,
+  'mars': $clr--orange-300,
+  'jupiter': $clr--red,
+  'saturn': $clr--orange-400,
+  'uranus': $clr--sea-green,
+  'neptune': $clr--blue-400,
+);
+
+.planet-btn {
+  width: 327px;
+  height: 65px;
+  border: none;
+  border-bottom: 1px solid $clr--dark-gray;
+  background-color: $clr--background;
+  &:last-child {
+    border-bottom: 0;
+  }
+  color: $clr--white;
+  font-family: $ff--spartan;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.36px;
+  text-transform: uppercase;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  @include a.breakpoint(tablet) {
+    width: auto;
+    font-size: 11px;
+    height: 25px;
+    color: $clr--light-gray;
+    border: 0;
+    display: inline;
+    padding: 0;
+    margin-left: 30px;
+    position: relative;
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      height: 4px;
+      width: 0;
+      transform: translateX(-50%);
+      transition: width 200ms ease-in;
+      background: white;
+      @include a.breakpoint(laptop) {
+        bottom: unset;
+        top: -28px;
+      }
+    }
+
+    @each $key, $val in $planet-colors {
+      &.#{$key} {
+        &::before {
+          background-color: $val;
+        }
+      }
+    }
+    &:hover {
+      color: $clr--white;
+      &::before {
+        width: 100%;
+      }
+    }
+    &.active {
+      color: $clr--white;
+      &::before {
+        width: 100%;
+      }
+    }
+    @include a.breakpoint(laptop) {
+    }
+  }
+  & .circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-bottom: 6px;
+    margin-right: 24px;
+  }
+  & .arrow {
+    position: absolute;
+    right: 8px;
+  }
+  &:hover {
+    background-color: $clr--dark-gray;
+    @include a.breakpoint(tablet) {
+      background-color: $clr--background;
+      color: $clr--white;
+    }
+  }
+}
+
+.info-btn {
+  width: 100%;
+  height: 50px;
+  background-color: $clr--background;
+  border: 0;
+  border-bottom: 1px solid $clr--dark-gray;
+  font-family: $ff--spartan;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.93px;
+  text-transform: uppercase;
+  color: $clr--light-gray;
+  cursor: pointer;
+  position: relative;
+  @include a.breakpoint(tablet) {
+    width: 281px;
+    height: 41px;
+    border: 1px solid $clr--dark-gray;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    color: $clr--white;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  @include a.breakpoint(laptop) {
+    width: 350px;
+    height: 48px;
+    font-size: 12px;
+    letter-spacing: 2.57px;
+  }
+  & .btn-num {
+    display: none;
+    @include a.breakpoint(tablet) {
+      display: inline;
+      margin-left: 20px;
+      margin-right: 27px;
+      color: $clr--light-gray;
+      font-weight: 900;
+    }
+  }
+  &.active {
+    color: $clr--white;
+    @include a.breakpoint(tablet) {
+      @each $key, $val in $planet-colors {
+        .#{$key} & {
+          background-color: $val;
+          border: 1px solid $val;
+        }
+      }
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 4px;
+      @include a.breakpoint(tablet) {
+        display: none;
+      }
+    }
+  }
+  &:hover {
+    color: $clr--white;
+    @include a.breakpoint(tablet) {
+      background-color: $clr--dark-gray;
+    }
+  }
+}
